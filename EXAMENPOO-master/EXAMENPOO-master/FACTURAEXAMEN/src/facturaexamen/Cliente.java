@@ -1,7 +1,7 @@
 
 package facturaexamen;
 
-public class Cliente extends Persona{
+public class Cliente {
     private Boolean CreditoActivo;
 
     public Boolean getCreditoActivo() {
