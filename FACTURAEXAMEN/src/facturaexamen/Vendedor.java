@@ -2,7 +2,7 @@
 package facturaexamen;
 
 
-public class Vendedor {
+public class Vendedor extends Persona{
     private String Sueldo;
 
     public String getSueldo() {

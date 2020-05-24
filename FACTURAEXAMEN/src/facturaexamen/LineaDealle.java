@@ -9,14 +9,13 @@ package facturaexamen;
  *
  * @author say
  */
-public class Comestible extends articuloNuevo implements Articulo{
-
-    @Override
-    public void SolicitarAbastecimiento() {
-        
-        
+public class LineaDealle {
+    private Integer CantidadComprada;
+    private Integer SubTotalArticulo;
+    private Integer InpuestoVenta;
+    
+    public void calcularImpuesto (){
+  
+        return;
     }
-
-    
-    
 }
