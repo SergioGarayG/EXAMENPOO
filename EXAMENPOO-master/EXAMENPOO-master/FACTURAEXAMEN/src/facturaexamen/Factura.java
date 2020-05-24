@@ -8,16 +8,6 @@ public class Factura {
     private Integer TotalPagar;
     private Integer TotalImpuesto;
 
-    public void calcularTotalPagar (){
-  
-        return;
-}
-      public void calcularImpuesto(){
-  
-        return;
-}
-    
-    
     public Integer getTotalImpuesto() {
         return TotalImpuesto;
     }
