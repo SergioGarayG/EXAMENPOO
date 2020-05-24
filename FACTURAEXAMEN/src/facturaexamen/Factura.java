@@ -29,26 +29,20 @@ public class Factura {
         ContaCliente= -1;
         ContaVendedor= -1;
     }
-
+    public void AgregarCliente(Cliente oCliente){
+        ContaCliente++;
+        Clientes[ContaCliente]= oCliente;        
+    }
+    
     public void calcularTotalPagar (){
   
         return;
-<<<<<<< HEAD
     }
       public void calcularImpuesto(){
   
         return;
     }
      
-=======
-}
-      public void calcularImpuesto(){
-  
-        return;
-}
-    
-    
->>>>>>> c9b690c61668a5218c58123b8e07680793fbe829
     public Integer getTotalImpuesto() {
         return TotalImpuesto;
     }

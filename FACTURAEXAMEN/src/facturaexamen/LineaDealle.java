@@ -14,15 +14,9 @@ public class LineaDealle {
     private Integer SubTotalArticulo;
     private Integer InpuestoVenta;
     
-<<<<<<< HEAD
-<<<<<<< HEAD
     private Articulo ARTICULO[]; 
     
     
-=======
->>>>>>> c9b690c61668a5218c58123b8e07680793fbe829
-=======
->>>>>>> c9b690c61668a5218c58123b8e07680793fbe829
     public void calcularImpuesto (){
   
         return;
