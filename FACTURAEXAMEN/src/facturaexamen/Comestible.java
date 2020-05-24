@@ -9,7 +9,7 @@ package facturaexamen;
  *
  * @author say
  */
-public class Comestible extends articuloNuevo implements Articulo{
+public class Comestible extends ArticuloNuevo implements Articulo{
 
     @Override
     public void SolicitarAbastecimiento() {
