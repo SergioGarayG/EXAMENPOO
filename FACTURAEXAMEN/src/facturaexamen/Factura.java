@@ -22,6 +22,7 @@ public class Factura implements Cloneable{
     private Integer ContaVendedor;
     
     public Factura(String NumeroFactura){
+        
         this.FechaFactura=FechaFactura;
         this.NumeroFactura=NumeroFactura;
         MaxVendedor=6;
@@ -32,6 +33,7 @@ public class Factura implements Cloneable{
         ContaCliente= -1;
         ContaVendedor= -1;
     }
+    
     public void AgregarCliente(Cliente oCliente){
         ContaCliente++;
         Clientes[ContaCliente]= oCliente;        
@@ -42,18 +44,16 @@ public class Factura implements Cloneable{
         Vendedores[ContaVendedor]= oVendedores; 
     }
     public void calcularTotalPagar (){
-        this.TotalPagar=this.Arti.PrecioTotal();
+        this.TotalPagar=this.Arti.getPrecio();
+        //this.TotalPagar=this.Arti.PrecioTotal();
         System.out.println("Su Total a Pagar es: "+this.getTotalPagar());
     }
-    public void calcularImpuesto(){
-        this.TotalImpuesto=this.LineaD.getInpuestoVenta();
-        System.out.println("ISV: "+this.getTotalImpuesto());
-    }
+    
      public String listarVendedores(){          
         ListaVendedores="";
         System.out.println("LISTA DE EMPLEADOS CADENA JSON");
         for(int i= 0; i <= ContaVendedor; i++){
-            System.out.println("\"Empleado[]\": {\n"+"\"Nombre\""+": \""+Vendedores[i].getNombreCompleto()+"\",\n"
+            System.out.println("\"Vendedor[]\": {\n"+"\"Nombre\""+": \""+Vendedores[i].getNombreCompleto()+"\",\n"
             +"\"Direccion\": \""+Vendedores[i].getDireccion()+"\",\n"+"\"ID\": \""+Vendedores[i].getId()+"\",\n"
             +"\"Sueldo\": "+Vendedores[i].getSueldo()+"\n},");
         }      
@@ -95,5 +95,9 @@ public class Factura implements Cloneable{
 
     public void setTotalPagar(Integer TotalPagar) {
         this.TotalPagar = TotalPagar;
+    }
+    public void calcularImpuesto(){
+        this.TotalImpuesto=this.LineaD.getInpuestoVenta();
+        System.out.println("ISV: "+this.getTotalImpuesto());
     }
 }

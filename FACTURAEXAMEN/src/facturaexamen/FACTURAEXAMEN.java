@@ -12,6 +12,8 @@ public class FACTURAEXAMEN {
         Cliente oCliente;
         Cliente oListaClientes[];
         Vendedor oVendedor;
+        articuloNuevo ANEW;
+        LineaDetalle LD;
         
         //instancia la empresa
         
@@ -52,7 +54,6 @@ public class FACTURAEXAMEN {
         //instancia un nuevo cliente
         oCliente= null;
         oCliente= new Cliente();
-        oCliente= new Cliente();
         oCliente.setNombreCompleto("Pedro Isaac Madero");
         oCliente.setId("0702199823654");
         oCliente.setCreditoActivo(true);
@@ -68,18 +69,45 @@ public class FACTURAEXAMEN {
         oListaClientes= oFactura.ListaDeClientes();
         System.out.println("\n\nLista de Clientes");
         for(int i= 0; i <= oFactura.getCliente(); i++){
-            System.out.print("Nombre: "); 
+            System.out.print("Nombre Completo: "); 
             System.out.println(oListaClientes[i].getNombreCompleto());
             
             System.out.print("Credito: "); 
-            System.out.println(oListaClientes[i].getCreditoActivo()); 
+            System.out.println(oListaClientes[i].getCreditoActivo()+"\n"); 
        }    
         
+       LD=new LineaDetalle();
+       ANEW=new articuloNuevo();
+       ANEW.setNombre("MARTILLO");
+       ANEW.setCodigo("12345");
+       ANEW.setPrecio(234);
+       LD.AgregarArticulo(ANEW);
+       System.out.println(LD.ListaArticulos());
+       
+       LD=new LineaDetalle();
+       ANEW=new articuloNuevo();
+       ANEW.setNombre("HACHA");
+       ANEW.setCodigo("34562");
+       ANEW.setPrecio(876);
+       LD.AgregarArticulo(ANEW);
+       System.out.println(LD.ListaArticulos());
+       ANEW.PrecioTotal();
+       LD.calcularImpuesto();
+       ///oFactura.calcularImpuesto();
+      // oFactura.calcularTotalPagar();
+       System.out.println("TOTAL ARTICULOS COMPRADOS: "+LD.getCantidadComprada());
+       
        System.out.println("=== Borrar ===");
        oFactura= null;
        System.gc();
-       //oListaClientes= oEmpresa.ListarClientes();
+       //oListaClientes= oFactura.ListaDeClientes();
        System.out.println(oListaClientes[0].getNombreCompleto());
+       
+       //Ahora agregamos los articulos
+       
+    
+      
+       
     }
     
 }
