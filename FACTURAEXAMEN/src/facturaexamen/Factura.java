@@ -2,23 +2,26 @@
 package facturaexamen;
 
 
-public class Factura {
+public class Factura implements Cloneable{
     private String FechaFactura;
     private String NumeroFactura;
     private Integer TotalPagar;
     private Integer TotalImpuesto;
+    public String ListaVendedores;
     
     private Cliente Clientes[]; //AGREGACION
     private Vendedor Vendedores[]; //AGREGACION
-    private LineaDealle LD[]; //COMPOSICION
-    private LineaDealle LineaD;
+    //private Vendedor vendedorA;
+    private LineaDetalle LD[]; //COMPOSICION
+    private LineaDetalle LineaD;
+    private articuloNuevo Arti;
     
     private Integer MaxVendedor;
     private Integer MaxCliente;
     private Integer ContaCliente;
     private Integer ContaVendedor;
     
-    public Factura(String FechaFactura, String NumeroFactura){
+    public Factura(String NumeroFactura){
         this.FechaFactura=FechaFactura;
         this.NumeroFactura=NumeroFactura;
         MaxVendedor=6;
@@ -34,15 +37,34 @@ public class Factura {
         Clientes[ContaCliente]= oCliente;        
     }
     
+    public void AgregarVendedor(Vendedor oVendedores){
+        ContaVendedor++;
+        Vendedores[ContaVendedor]= oVendedores; 
+    }
     public void calcularTotalPagar (){
-  
-        return;
+        this.TotalPagar=this.Arti.PrecioTotal();
+        System.out.println("Su Total a Pagar es: "+this.getTotalPagar());
     }
-      public void calcularImpuesto(){
-  
-        return;
+    public void calcularImpuesto(){
+        this.TotalImpuesto=this.LineaD.getInpuestoVenta();
+        System.out.println("ISV: "+this.getTotalImpuesto());
     }
-     
+     public String listarVendedores(){          
+        ListaVendedores="";
+        System.out.println("LISTA DE EMPLEADOS CADENA JSON");
+        for(int i= 0; i <= ContaVendedor; i++){
+            System.out.println("\"Empleado[]\": {\n"+"\"Nombre\""+": \""+Vendedores[i].getNombreCompleto()+"\",\n"
+            +"\"Direccion\": \""+Vendedores[i].getDireccion()+"\",\n"+"\"ID\": \""+Vendedores[i].getId()+"\",\n"
+            +"\"Sueldo\": "+Vendedores[i].getSueldo()+"\n},");
+        }      
+        return ListaVendedores;    
+    }
+    public Cliente[] ListaDeClientes(){
+        return Clientes;
+    }
+    public Integer getCliente() {
+        return ContaCliente;
+    }
     public Integer getTotalImpuesto() {
         return TotalImpuesto;
     }
@@ -67,7 +89,7 @@ public class Factura {
         this.NumeroFactura = NumeroFactura;
     }
 
-    public Integer getTotalPagar() {
+    public Integer getTotalPagar() {   
         return TotalPagar;
     }
 

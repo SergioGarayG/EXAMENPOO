@@ -18,5 +18,15 @@ public class Ferreteria extends articuloNuevo implements Articulo{
         
         
     }
-    
+
+    public String getArea() {
+        return Area;
+    }
+
+    public void setArea(String Area) {
+        this.Area = Area;
+    }
+    public void EligaArea(String oArea){
+        
+    }
 }
