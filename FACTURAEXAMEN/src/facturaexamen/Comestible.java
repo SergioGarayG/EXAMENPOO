@@ -9,11 +9,11 @@ package facturaexamen;
  *
  * @author say
  */
-public class Comestible extends ArticuloNuevo implements Articulo{
-
+public class Comestible extends articuloNuevo implements Articulo{
+    private String FechaVencimiento;
+    
     @Override
     public void SolicitarAbastecimiento() {
-        
         
     }
 

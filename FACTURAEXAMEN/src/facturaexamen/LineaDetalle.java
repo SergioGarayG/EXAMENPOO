@@ -1,73 +1,74 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package facturaexamen;
 
 /**
  *
  * @author say
  */
-public class LineaDetalle{
+public class LineaDetalle {
     private Integer CantidadComprada;
     private Integer SubTotalArticulo;
-    private Integer InpuestoVenta;
-   // private Integer ContaArticulo;
-    private ArticuloNuevo Articulo;
-  
+    private double InpuestoVenta;
+    private Integer MaxArticulos;
+    private String ListaArticulo;
     
-     private Articulo ARTICULO[]; 
-
-    public void setInpuestoVenta(Integer InpuestoVenta) {
-        this.InpuestoVenta = InpuestoVenta;
+    private articuloNuevo ARTICULO[];//INSTANCIA DE articuloNuevo
+    private articuloNuevo ArticuloNuevo; //AGREGACION
+    
+    public LineaDetalle(){//CONSRUCTOR PARA INICIALIZAR CantidadComprada        
+        CantidadComprada=0;
+        MaxArticulos=12;
+        ARTICULO= new articuloNuevo[MaxArticulos];     
+        
     }
-
-    public Integer getInpuestoVenta() {
-        return InpuestoVenta;
+    /*public void AgregarArticulo(Articulo oArticulo){
+        CantidadComprada++;
+        ARTICULO[CantidadComprada]= oArticulo;        
+    }*/
+    public void AgregarArticulo(articuloNuevo oArticulo){
+        CantidadComprada++;
+        ARTICULO[CantidadComprada]= oArticulo; 
+        
     }
-
-    public Integer getCantidadComprada() {
-        return CantidadComprada;
+    
+    public String ListaArticulos(){          
+        ListaArticulo="";
+        System.out.println("LISTA DE ARTICULOS CADENA JSON");
+        for(int i= 1; i <= CantidadComprada; i++){
+            System.out.println("\"Articulo[]\": {\n"+"\"Nombre\""+": \""+ARTICULO[i].getNombre()+"\",\n"
+            +"\"Codigo\": \""+ARTICULO[i].getCodigo()+"\",\n"+"\"Precio\": \""+ARTICULO[i].getPrecio()+"\n},");
+        }      
+        return ListaArticulo;  
+        
     }
-
+    
+    /*public articuloNuevo[] ListaDeArticulos(){
+        return ARTICULO;
+    }*/
+    public Integer getCantidadComprada() { 
+        
+        return CantidadComprada=+2;
+    }
 
     public void setCantidadComprada(Integer CantidadComprada) {
         this.CantidadComprada = CantidadComprada;
     }
-
-    
-      public void AgregarArticulo  (Articulo oArticulo){
-  
-      CantidadComprada++;
-      ARTICULO[CantidadComprada]=oArticulo;
-              
-     }
-
-    public LineaDetalle() {
-        CantidadComprada =0;
+    public double getInpuestoVenta() {
+        return InpuestoVenta;
     }
-      
+
+    public void setInpuestoVenta(Integer InpuestoVenta) {
+        this.InpuestoVenta = InpuestoVenta;
+    }
+    
     public void calcularImpuesto (){
+        double Is=0.25;   
+        //Integer a = (int) Is;
         
-        double Is= 0.25;
-        int a = (int) Is;
-       this.InpuestoVenta=this.getCantidadComprada()*this.Articulo. PrecioTotal()*a;
-        System.out.println("ISV: " +this.InpuestoVenta ) ;
-  
-        return;
- 
+        for (int i = 0; i <ARTICULO.length; i++) {
+           this.InpuestoVenta=ARTICULO[i].Precio*this.getCantidadComprada()*Is;            
+        }
+        
+        System.out.println("ISV: "+this.ArticuloNuevo.getPrecio());
     }
-    
-   
 }
-
-
-
-
-
-
-
-
-
-
