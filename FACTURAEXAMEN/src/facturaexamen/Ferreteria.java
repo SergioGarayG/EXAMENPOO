@@ -9,7 +9,7 @@ package facturaexamen;
  *
  * @author say
  */
-public class Ferreteria implements  Articulo{
+public class Ferreteria extends articuloNuevo implements Articulo{
 
     private String Area;
     

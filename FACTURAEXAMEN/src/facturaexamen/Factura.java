@@ -7,6 +7,7 @@ public class Factura {
     private String NumeroFactura;
     private Integer TotalPagar;
     private Integer TotalImpuesto;
+<<<<<<< HEAD
     public String ListaVendedores;
     
     
@@ -17,6 +18,13 @@ public class Factura {
     private Vendedor Vendedores[]; //AGREGACION
     private LineaDetalle LD[]; //COMPOSICION
     private LineaDetalle LineaD;
+=======
+    
+    private Cliente Clientes[]; //AGREGACION
+    private Vendedor Vendedores[]; //AGREGACION
+    private LineaDealle LD[]; //COMPOSICION
+    private LineaDealle LineaD;
+>>>>>>> master
     
     private Integer MaxVendedor;
     private Integer MaxCliente;
@@ -39,16 +47,20 @@ public class Factura {
         Clientes[ContaCliente]= oCliente;        
     }
     
+<<<<<<< HEAD
     public void agregarVendedor(Vendedor oVendedores){
        ContaVendedor++;
         Vendedores[ContaVendedor]= oVendedores; 
         
     }
+=======
+>>>>>>> master
     public void calcularTotalPagar (){
         this.TotalPagar=this.ArticuloNuevo.PrecioTotal ();
         System.out.println("El total a pagar es " + this.getTotalPagar());
         
   
+<<<<<<< HEAD
        
     }
       public void calcularImpuesto(){
@@ -58,6 +70,14 @@ public class Factura {
         
     }
        
+=======
+        return;
+    }
+      public void calcularImpuesto(){
+  
+        return;
+    }
+>>>>>>> master
      
     public Integer getTotalImpuesto() {
         return TotalImpuesto;

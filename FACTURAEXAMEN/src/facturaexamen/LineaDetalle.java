@@ -17,6 +17,7 @@ public class LineaDetalle{
     private ArticuloNuevo Articulo;
   
     
+<<<<<<< HEAD:FACTURAEXAMEN/src/facturaexamen/LineaDetalle.java
      private Articulo ARTICULO[]; 
 
     public void setInpuestoVenta(Integer InpuestoVenta) {
@@ -48,6 +49,11 @@ public class LineaDetalle{
         CantidadComprada =0;
     }
       
+=======
+    private Articulo ARTICULO[]; 
+    
+    
+>>>>>>> master:FACTURAEXAMEN/src/facturaexamen/LineaDealle.java
     public void calcularImpuesto (){
         
         double Is= 0.25;
