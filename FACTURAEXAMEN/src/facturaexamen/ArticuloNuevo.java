@@ -9,56 +9,46 @@ package facturaexamen;
  *
  * @author say
  */
-public class ArticuloNuevo{
+public class articuloNuevo{
     
     private String codigo; 
     private String Nombre; 
-    private Integer  Precio; 
+    private Integer Precio; //NECESITAMOS UN ATRIBUTO INTEGER PORQUE CALCULAMOS UN IMPUESTO
 
     public String getCodigo() {
         return codigo;
-    }
-
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public Integer getPrecio() {
-        return Precio;
     }
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
+    public String getNombre() {
+        return Nombre;
+    }
+
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
+    }
+
+    public Integer getPrecio() {
+        return Precio;
     }
 
     public void setPrecio(Integer Precio) {
         this.Precio = Precio;
     }
     
-    public Integer PrecioTotal (){
-        
+    public Integer PrecioTotal(){ 
         Integer temp;
-        temp = Precio;
-        if (temp == null){
+        temp=Precio;
+        if(temp==null){
             return Precio=temp;
-                    
-      }else{
-            if (temp!=null){
+        }else{
+            if(temp!=null){
                 return Precio=temp+Precio;
-                        
             }
-        } 
-        
-    
-      return Precio;
-       
-     
+        }
+        return Precio;
     }
-    
-    
-  
 }
