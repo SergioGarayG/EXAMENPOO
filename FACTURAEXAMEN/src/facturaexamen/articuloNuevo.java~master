@@ -1,13 +1,20 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package facturaexamen;
 
-
+/**
+ *
+ * @author say
+ */
 public class articuloNuevo{
     
     private String codigo; 
     private String Nombre; 
-    protected Integer Precio; //NECESITAMOS UN ATRIBUTO INTEGER PORQUE CALCULAMOS UN IMPUESTO
-    
+    private Integer Precio; //NECESITAMOS UN ATRIBUTO INTEGER PORQUE CALCULAMOS UN IMPUESTO
+
     public String getCodigo() {
         return codigo;
     }
@@ -23,29 +30,19 @@ public class articuloNuevo{
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
-    Integer temp;
-    public Integer getPrecio() {
+
+    public Integer getPrecio() { 
         return Precio;       
     }
 
     public void setPrecio(Integer Precio) {
         this.Precio = Precio;
-        temp=Precio;
-        
     }
-   
-    public Integer PrecioTotal(){ 
-        Precio+=temp;
-        /*Integer temp;
+    //Integer temp;
+    articuloNuevo n;
+    public void PrecioTotal(){ 
         
-        if(Precio==null) {
-            Precio=temp;
-            //Precio++;
-        }else{
-            Precio+=temp;
-        }*/
-        
-        System.out.println("SU PRECIO TOTAL ES: "+this.getPrecio());
-        return Precio;
+        Integer temp,tenp1;
+        System.out.println("SU PRECIO TOTAL ES: "+this.Precio);
     }
 }
