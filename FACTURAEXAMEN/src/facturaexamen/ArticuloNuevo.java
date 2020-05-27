@@ -31,24 +31,18 @@ public class articuloNuevo{
         this.Nombre = Nombre;
     }
 
-    public Integer getPrecio() {
-        return Precio;
+    public Integer getPrecio() { 
+        return Precio;       
     }
 
     public void setPrecio(Integer Precio) {
         this.Precio = Precio;
     }
-    
-    public Integer PrecioTotal(){ 
-        Integer temp;
-        temp=Precio;
-        if(temp==null){
-            return Precio=temp;
-        }else{
-            if(temp!=null){
-                return Precio=temp+Precio;
-            }
-        }
-        return Precio;
+    //Integer temp;
+    articuloNuevo n;
+    public void PrecioTotal(){ 
+        
+        Integer temp,tenp1;
+        System.out.println("SU PRECIO TOTAL ES: "+this.Precio);
     }
 }
