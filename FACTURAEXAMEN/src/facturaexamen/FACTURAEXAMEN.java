@@ -83,37 +83,25 @@ public class FACTURAEXAMEN {
        ANEW.setPrecio(234);
        LD.AgregarArticulo(ANEW);
        System.out.println(LD.ListaArticulos());
-<<<<<<< HEAD
        ANEW= null;
        
-=======
-       
-       LD=new LineaDetalle();
->>>>>>> master
-       ANEW=new articuloNuevo();
+       /*ANEW=new articuloNuevo();
        ANEW.setNombre("HACHA");
        ANEW.setCodigo("34562");
        ANEW.setPrecio(876);
        LD.AgregarArticulo(ANEW);
        System.out.println(LD.ListaArticulos());
-<<<<<<< HEAD
         ANEW=new articuloNuevo();
        ANEW.setNombre("HACHA");
        ANEW.setCodigo("34562");
        ANEW.setPrecio(1200);
        LD.AgregarArticulo(ANEW);
-       System.out.println(LD.ListaArticulos());
+       System.out.println(LD.ListaArticulos());*/
        
        ANEW.PrecioTotal();
-       
-      LD.calcularImpuesto();
-      //oFactura.calcularTotalPagar();
-=======
-       ANEW.PrecioTotal();
+      // LD.PrecioTotal();
        LD.calcularImpuesto();
-       ///oFactura.calcularImpuesto();
-      // oFactura.calcularTotalPagar();
->>>>>>> master
+      //oFactura.calcularTotalPagar();
        System.out.println("TOTAL ARTICULOS COMPRADOS: "+LD.getCantidadComprada());
        
        System.out.println("=== Borrar ===");
