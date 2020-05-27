@@ -1,10 +1,14 @@
 
 package facturaexamen;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
 
 public class Factura implements Cloneable{
     private String FechaFactura;
-    private String NumeroFactura;
+    private int NumeroFactura;
     private double TotalPagar=0;
     private double TotalImpuesto;
     private String ListaVendedores;
@@ -30,7 +34,7 @@ public class Factura implements Cloneable{
     
     public Factura(String NumeroFactura){       
         this.FechaFactura=FechaFactura;
-        this.NumeroFactura=NumeroFactura;
+        
         MaxVendedor=6;
         MaxCliente= 10;
         MaxArticulo=200;
@@ -38,8 +42,10 @@ public class Factura implements Cloneable{
         //ART= new articuloNuevo[MaxArticulo];
         //ARTICULO= new articuloNuevo();
         Clientes= new Cliente[MaxCliente];
+        LD= new LineaDetalle[MaxArticulo];
         ContaCliente= -1;
         ContaVendedor= -1;
+        ContaLD= -1;
     }
     
     public void AgregarCliente(Cliente oCliente){
@@ -54,17 +60,14 @@ public class Factura implements Cloneable{
     public void AgregarLineaDetalle(LineaDetalle oLD){
         ContaLD++;
         this.LineaD= new LineaDetalle();
-        this.LineaD= (LineaDetalle)LineaD.clone();
+        this.LineaD= (LineaDetalle)oLD.clone();
         LD[ContaLD]= this.LineaD;   
     }
     
-    public String ListaArticulos(){          
-        ListaArticulo="";
-        System.out.println("LISTA DE ARTICULOS CADENA JSON");
-        for(int i= 0; i <= CantidadComprada; i++){
-            System.out.println("\"Articulo[]\": {\n"+"\"Nombre\""+": \""+ARTICULO[i].getNombre()+"\",\n"
-            +"\"Codigo\": \""+ARTICULO[i].getCodigo()+"\",\n"+"\"Precio\": \""+ARTICULO[i].getPrecio()+"\n},");
-        }   
+    public String ListaArticulos(){ 
+        System.out.println("FACTURA: ");
+        //AQUI ACCEDEMOS DIRECTO AL METODO
+        ListaArticulo=this.LineaD.ListaArticulos();   
         return ListaArticulo;        
     }
     public void calcularTotalPagar (double s){ 
@@ -97,6 +100,24 @@ public class Factura implements Cloneable{
     }
 
     public String getFechaFactura() {
+        //FECHA DE FACTURA
+        Scanner entrada=new Scanner(System.in);
+        Date fecha=new Date();
+        int año=fecha.getYear();
+        int dia=fecha.getDate();
+        int mes=fecha.getMonth();
+        int hora,minutos,segundos;
+        System.out.println("FECHA FACTURA: "+(año+1900)+"/"+(mes+1)+"/"+dia);
+        
+        Calendar calendario=Calendar.getInstance();
+        año=calendario.get(Calendar.YEAR);
+        dia=calendario.get(Calendar.DATE);
+        calendario.setTime(fecha);
+        //HORA DE FACTURA
+        hora=calendario.get(Calendar.HOUR_OF_DAY);
+        minutos=calendario.get(Calendar.MINUTE);
+        segundos=calendario.get(Calendar.SECOND);
+        System.out.println("HORA: "+hora+":"+minutos+":"+segundos);
         return FechaFactura;
     }
 
@@ -105,11 +126,29 @@ public class Factura implements Cloneable{
     }
 
     public String getNumeroFactura() {
-        return NumeroFactura;
+        return this.num;
     }
-
-    public void setNumeroFactura(String NumeroFactura) {
+    private final int cont=1;
+    private String num="";
+    public void setNumeroFactura(int NumeroFactura) {
+    
         this.NumeroFactura = NumeroFactura;
+        if((this.NumeroFactura>=1000) || (this.NumeroFactura<1000)){
+            int can=cont+this.NumeroFactura;
+            num=""+can;
+        } 
+        if((this.NumeroFactura>=100) || (this.NumeroFactura<100)){
+            int can=cont+this.NumeroFactura;
+            num=""+can;
+        }
+        if((this.NumeroFactura>=9) || (this.NumeroFactura<100)){
+            int can=cont+this.NumeroFactura;
+            num="00"+can;
+        }
+        if((this.NumeroFactura<9)){
+            int can=cont+this.NumeroFactura;
+            num="000"+can;
+        }
     }
 
     public double getTotalPagar() {

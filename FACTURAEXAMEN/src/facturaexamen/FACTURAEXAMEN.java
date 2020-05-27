@@ -2,7 +2,8 @@
 package facturaexamen;
 
 import java.util.Scanner;
-import javax.swing.JOptionPane;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class FACTURAEXAMEN {
@@ -17,6 +18,7 @@ public class FACTURAEXAMEN {
         Vendedor oVendedor;
         articuloNuevo ANEW;
         LineaDetalle LD;
+        Ferreteria F=new Ferreteria();
         
         //instancia la empresa
         
@@ -79,7 +81,8 @@ public class FACTURAEXAMEN {
             System.out.println(oListaClientes[i].getCreditoActivo()+"\n"); 
        }    
        System.out.println("================================================"); 
-       LD=new LineaDetalle();
+       
+       LD=new LineaDetalle();//INSTANCIO LINEA DETALLE PORQUE AQUI AGREGO MIS ARTICULOS
        ANEW=new articuloNuevo();
        ANEW.setNombre("MARTILLO");
        ANEW.setCodigo("12345");
@@ -108,19 +111,38 @@ public class FACTURAEXAMEN {
        ANEW.setCodigo("345d");
        ANEW.setPrecio(125);
        LD.AgregarArticulo(ANEW);
+       
+       
+       //AHORA IMPRIME LOS ARTICULOS CADA UNO CON SU PROPIEDAD
        System.out.println(LD.ListaArticulos());
        
+       oFactura.AgregarLineaDetalle(LD);
+       System.out.println(oFactura.ListaArticulos());
        System.out.println("\nTOTAL ARTICULOS COMPRADOS: "+LD.getCantidadComprada());
-       //LD.calcularImpuesto();
+      
        System.out.println("================================================");
-       //subt=LD.getSubTotalArticulo();
-       //oFactura.calcularTotalPagar(subt);
-       LD.ST();
-       LD.IV();
-       LD.calcularImpuesto();
-       LD.T();;
+       //AHORA HAREMOS LOS CALCULOS
+       LD.ST();//ESTE METODO CALCULA EL SUBTOTAL EN LA CLASE LINEADETALLE
+       LD.IV();//ESTE METODO CALCULA EL ISV EN LA CLASE LINEADETALLE
+       LD.calcularImpuesto();//
+       LD.T();;//ESTE METODO CALCULA EL TOTAL EN LA CLASE LINEADETALLE
        //oFactura.calcularImpuesto(subt1);
        System.out.println("SUBTOTAL ARTICULOS: "+LD.getSubTotalArticulo());
+       
+       //AHORA LLAMAREMOS A LAS CLASES HIJAS DE ARTICULONUEVO
+       
+       F.SolicitarAbastecimiento();
+       F.setArea("CONSTRUCCION");
+       
+       Comestible C=new Comestible();
+       C.SolicitarAbastecimiento();
+       //MANDAMOS A LLAMAR LA HORA Y FECHA FACTURA
+       oFactura.getFechaFactura();
+        
+       //NUMERO DE FACTURA
+       oFactura.setNumeroFactura(300);
+        System.out.println("#FACTURA: "+oFactura.getNumeroFactura());//GENERA UN NUMERO ALEATORIO CADA VEZ QUE COMPILA
+      
        System.out.println("=== Borrar ===");
        oFactura= null;
        System.gc();

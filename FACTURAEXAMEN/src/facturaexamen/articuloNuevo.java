@@ -31,6 +31,6 @@ public class articuloNuevo{
     public void setPrecio(Integer Precio) {
         this.Precio = Precio;   
     }
-   
+    
     
 }
