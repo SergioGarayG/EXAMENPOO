@@ -23,29 +23,14 @@ public class articuloNuevo{
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
-    Integer temp;
+    
     public Integer getPrecio() {
         return Precio;       
     }
 
     public void setPrecio(Integer Precio) {
-        this.Precio = Precio; 
-        temp=Precio;
-        
+        this.Precio = Precio;   
     }
    
-    public Integer PrecioTotal(){ 
-        Precio+=temp;
-        /*Integer temp;
-        
-        if(Precio==null) {
-            Precio=temp;
-            //Precio++;
-        }else{
-            Precio+=temp;
-        }*/
-        
-        System.out.println("SU PRECIO TOTAL ES: "+this.getPrecio());
-        return Precio;
-    }
+    
 }

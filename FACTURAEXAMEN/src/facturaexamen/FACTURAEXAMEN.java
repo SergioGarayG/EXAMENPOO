@@ -82,28 +82,42 @@ public class FACTURAEXAMEN {
        ANEW.setCodigo("12345");
        ANEW.setPrecio(234);
        LD.AgregarArticulo(ANEW);
-       System.out.println(LD.ListaArticulos());
+       
        ANEW= null;
        
-       /*ANEW=new articuloNuevo();
+       ANEW=new articuloNuevo();
        ANEW.setNombre("HACHA");
        ANEW.setCodigo("34562");
        ANEW.setPrecio(876);
        LD.AgregarArticulo(ANEW);
-       System.out.println(LD.ListaArticulos());
-        ANEW=new articuloNuevo();
-       ANEW.setNombre("HACHA");
-       ANEW.setCodigo("34562");
-       ANEW.setPrecio(1200);
+       
+       
+       ANEW= null;
+       ANEW=new articuloNuevo();
+       ANEW.setNombre("HAC");
+       ANEW.setCodigo("345d");
+       ANEW.setPrecio(120);
        LD.AgregarArticulo(ANEW);
-       System.out.println(LD.ListaArticulos());*/
        
-       ANEW.PrecioTotal();
-      // LD.PrecioTotal();
+       ANEW= null;
+       ANEW=new articuloNuevo();
+       ANEW.setNombre("CLAVOS");
+       ANEW.setCodigo("345d");
+       ANEW.setPrecio(125);
+       LD.AgregarArticulo(ANEW);
+       System.out.println(LD.ListaArticulos());
+       
        LD.calcularImpuesto();
-      //oFactura.calcularTotalPagar();
-       System.out.println("TOTAL ARTICULOS COMPRADOS: "+LD.getCantidadComprada());
        
+       double subt=0,subt1=0;
+       //System.out.println("TOTAL ARTICULOS COMPRADOS: "+LD.getCantidadComprada());
+       
+       //subt=LD.getSubTotalArticulo();
+       //oFactura.calcularTotalPagar(subt);
+       LD.ST();
+       subt1=LD.getInpuestoVenta();
+       oFactura.calcularImpuesto(subt1);
+       System.out.println("SU TOTAL A PAGAR ES: "+LD.getSubTotalArticulo());
        System.out.println("=== Borrar ===");
        oFactura= null;
        System.gc();

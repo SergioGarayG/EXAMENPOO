@@ -5,8 +5,8 @@ package facturaexamen;
 public class Factura implements Cloneable{
     private String FechaFactura;
     private String NumeroFactura;
-    private Integer TotalPagar;
-    private Integer TotalImpuesto;
+    private double TotalPagar=0;
+    private double TotalImpuesto;
     public String ListaVendedores;
     
     private Cliente Clientes[]; //AGREGACION
@@ -14,8 +14,8 @@ public class Factura implements Cloneable{
     //private Vendedor vendedorA;
     private LineaDetalle LD[]; //COMPOSICION
     private LineaDetalle LineaD;
-    private articuloNuevo ARTICULO;
-    private articuloNuevo ART[];
+    //private articuloNuevo ARTICULO;
+    //private articuloNuevo ART[];
     
     
     private Integer MaxVendedor;
@@ -31,8 +31,8 @@ public class Factura implements Cloneable{
         MaxCliente= 10;
         MaxArticulo=200;
         Vendedores= new Vendedor[MaxVendedor];
-        ART= new articuloNuevo[MaxArticulo];
-        ARTICULO= new articuloNuevo();
+        //ART= new articuloNuevo[MaxArticulo];
+        //ARTICULO= new articuloNuevo();
         Clientes= new Cliente[MaxCliente];
         ContaCliente= -1;
         ContaVendedor= -1;
@@ -47,11 +47,10 @@ public class Factura implements Cloneable{
         ContaVendedor++;
         Vendedores[ContaVendedor]= oVendedores; 
     }
-    public void calcularTotalPagar (){ 
-        for (int i = 0; i < ART.length; i++) {
-            //this.TotalPagar=this.LineaD.getCantidadComprada()*this.LineaD.getInpuestoVenta();
-        }
-        System.out.println("Su Total a Pagar es: "+this.getTotalPagar());
+    
+    public void calcularTotalPagar (double s){ 
+        this.TotalPagar=s;
+        System.out.println("SU TOTAL A PAGAR ES: "+ this.getTotalPagar());
     }
     
      public String listarVendedores(){          
@@ -70,7 +69,7 @@ public class Factura implements Cloneable{
     public Integer getCliente() {
         return ContaCliente;
     }
-    public Integer getTotalImpuesto() {
+    public double getTotalImpuesto() {
         return TotalImpuesto;
     }
 
@@ -94,14 +93,16 @@ public class Factura implements Cloneable{
         this.NumeroFactura = NumeroFactura;
     }
 
-    public Integer getTotalPagar() {   
+    public double getTotalPagar() {
+        //this.TotalPagar=this.LineaD.getSubTotalArticulo();
         return TotalPagar;
     }
 
     public void setTotalPagar(Integer TotalPagar) {
         this.TotalPagar = TotalPagar;
     }
-    public void calcularImpuesto(){
-        
+    public void calcularImpuesto(double s){
+        this.TotalImpuesto=s;
+        System.out.println("ISV: "+this.getTotalImpuesto());
     }
 }
