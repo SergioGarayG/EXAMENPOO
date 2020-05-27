@@ -5,7 +5,7 @@ package facturaexamen;
  *
  * @author say
  */
-public class LineaDetalle {
+public class LineaDetalle implements Cloneable{
     private Integer CantidadComprada;
     private double SubTotalArticulo=0;
     private double InpuestoVenta;
@@ -21,6 +21,16 @@ public class LineaDetalle {
         ARTICULO= new articuloNuevo[MaxArticulos];  
        
         
+    }
+    public Object clone(){ 
+        Object obj= null;
+        try{
+            obj= super.clone();
+        }
+        catch(CloneNotSupportedException e){
+            System.out.println(" NO PUDO DUPLICARSE");
+        }
+        return obj;
     }
     /*public void AgregarArticulo(Articulo oArticulo){
         CantidadComprada++;
@@ -54,9 +64,15 @@ public class LineaDetalle {
         this.CantidadComprada = CantidadComprada;
         
     }
+    double Is=0.25;
+    public void IV(){
+        for (int i = 0; i<= CantidadComprada; i++) {
+            InpuestoVenta+=ARTICULO[i].getPrecio()*Is;
+            System.out.println(ARTICULO[i].getNombre()+" SU IMPUESTO ES :"+ARTICULO[i].getPrecio()*Is);
+        }
+    }
     public double getInpuestoVenta() {
-        double Is=0.25;
-        this.InpuestoVenta=this.getSubTotalArticulo()*Is;
+         //this.InpuestoVenta=this.getSubTotalArticulo()*Is;
         return InpuestoVenta;
     }
 
@@ -65,13 +81,20 @@ public class LineaDetalle {
     }
     public void ST(){
         for (int i = 0; i<= CantidadComprada; i++) {
+            SubTotalArticulo+=ARTICULO[i].getPrecio()-ARTICULO[i].getPrecio()*Is;
+            System.out.println(ARTICULO[i].getNombre()+" subtotal: "+(ARTICULO[i].getPrecio()-ARTICULO[i].getPrecio()*Is));
+        }
+    }
+    /*public void ST(){
+        for (int i = 0; i<= CantidadComprada; i++) {
             SubTotalArticulo+=ARTICULO[i].getPrecio();
             System.out.println(ARTICULO[i].getPrecio());
         }
-    }
+    }*///METODO PARA SACAR EL TOTAL A PAGAR
+    
     public double getSubTotalArticulo() {       
         //ArticuloNuevo=new articuloNuevo();
-        
+      
         return SubTotalArticulo;
     }
 
@@ -79,8 +102,20 @@ public class LineaDetalle {
         this.SubTotalArticulo = SubTotalArticulo;
     }
     
-    public void calcularImpuesto (){       
+    public void calcularImpuesto (){   
+        //this.InpuestoVenta=x;
+        /*for (int i = 0; i<= CantidadComprada; i++) {
+            SubTotalArticulo+=ARTICULO[i].getPrecio();
+            System.out.println(ARTICULO[i].getPrecio());
+        }*/
         System.out.println("ISV: "+this.getInpuestoVenta());
     }
-    
+    public void T(){
+        double x=this.InpuestoVenta+this.SubTotalArticulo;
+        for (int i = 0; i<= CantidadComprada; i++) {
+            x+=ARTICULO[i].getPrecio();
+            System.out.println("TOTAL A PAGAR POR "+ARTICULO[i].getNombre()+" ES: "+ARTICULO[i].getPrecio());
+        }
+        System.out.println("TOTAL A PAGAR POR TODO: "+(this.getInpuestoVenta()+this.getSubTotalArticulo()));
+    }
 }

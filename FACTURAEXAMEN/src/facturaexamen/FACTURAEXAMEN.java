@@ -64,9 +64,9 @@ public class FACTURAEXAMEN {
         //agrega el nuevo cliente a la empresa
         oFactura.AgregarCliente(oCliente);
 
-        //lista los empleados, regresa una cadena   
+        //lista los Veendedores, regresa una cadena   
         System.out.println(oFactura.listarVendedores());
-                  
+        System.out.println("================================================");           
         //lista de clientes, regresa un arreglo con los objetos
         //luego lista ese arreglo
         oListaClientes= oFactura.ListaDeClientes();
@@ -78,7 +78,7 @@ public class FACTURAEXAMEN {
             System.out.print("Credito: "); 
             System.out.println(oListaClientes[i].getCreditoActivo()+"\n"); 
        }    
-        
+       System.out.println("================================================"); 
        LD=new LineaDetalle();
        ANEW=new articuloNuevo();
        ANEW.setNombre("MARTILLO");
@@ -110,17 +110,17 @@ public class FACTURAEXAMEN {
        LD.AgregarArticulo(ANEW);
        System.out.println(LD.ListaArticulos());
        
-       LD.calcularImpuesto();
-       
-       double subt=0,subt1=0;
-       //System.out.println("TOTAL ARTICULOS COMPRADOS: "+LD.getCantidadComprada());
-       
+       System.out.println("\nTOTAL ARTICULOS COMPRADOS: "+LD.getCantidadComprada());
+       //LD.calcularImpuesto();
+       System.out.println("================================================");
        //subt=LD.getSubTotalArticulo();
        //oFactura.calcularTotalPagar(subt);
        LD.ST();
-       subt1=LD.getInpuestoVenta();
-       oFactura.calcularImpuesto(subt1);
-       System.out.println("SU TOTAL A PAGAR ES: "+LD.getSubTotalArticulo());
+       LD.IV();
+       LD.calcularImpuesto();
+       LD.T();;
+       //oFactura.calcularImpuesto(subt1);
+       System.out.println("SUBTOTAL ARTICULOS: "+LD.getSubTotalArticulo());
        System.out.println("=== Borrar ===");
        oFactura= null;
        System.gc();
@@ -129,38 +129,6 @@ public class FACTURAEXAMEN {
        
        //Ahora agregamos los articulos
        
-    
-       Scanner entr=new Scanner(System.in);
-        
-        int opcion=0,ELEMENTO;
-        do{
-            try{
-                opcion=Integer.parseInt(JOptionPane.showInputDialog(null, "Bienvenido a la tienda DETODO1\n1. Escoja area Donde comprar\n2. Mostrar lista\n"
-                        +"3. Salir","Menu",3));
-                switch(opcion){
-                    case 1:
-                        try{
-                            ELEMENTO=Integer.parseInt(JOptionPane.showInputDialog(null,"QUE DESEA COMPRAR:","Insertado en el Inicio",3));
-                            //SE AGREGA EL NODO
-                            LD.AgregarArticulo(ELEMENTO);
-                        }catch(NumberFormatException a){
-                            JOptionPane.showMessageDialog(null,"ERROR:"+a.getMessage());
-                        }
-                        break;
-                    case 2:
-                        l.MostrarTodaLista();;
-                        break;
-                    case 3:
-                        break;
-                    default:
-                        JOptionPane.showMessageDialog(null,"SU OPCION ES INVALIDA");
-                }
-                
-                
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null,"HUBO UN ERROR"+e.getMessage());
-            }
-        }while(opcion!=3);
        
     }
     

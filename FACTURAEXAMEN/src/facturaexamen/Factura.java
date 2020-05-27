@@ -7,13 +7,16 @@ public class Factura implements Cloneable{
     private String NumeroFactura;
     private double TotalPagar=0;
     private double TotalImpuesto;
-    public String ListaVendedores;
+    private String ListaVendedores;
+    private String ListaArticulo;
     
     private Cliente Clientes[]; //AGREGACION
     private Vendedor Vendedores[]; //AGREGACION
     //private Vendedor vendedorA;
-    private LineaDetalle LD[]; //COMPOSICION
-    private LineaDetalle LineaD;
+    private LineaDetalle LD[];    //COMPOSICION
+    private LineaDetalle LineaD;//para instanciar LineaDetalle que 
+                                 //forman parte de la Factura composición
+    
     //private articuloNuevo ARTICULO;
     //private articuloNuevo ART[];
     
@@ -23,6 +26,7 @@ public class Factura implements Cloneable{
     private Integer MaxArticulo;
     private Integer ContaCliente;
     private Integer ContaVendedor;
+    private Integer ContaLD;
     
     public Factura(String NumeroFactura){       
         this.FechaFactura=FechaFactura;
@@ -47,7 +51,22 @@ public class Factura implements Cloneable{
         ContaVendedor++;
         Vendedores[ContaVendedor]= oVendedores; 
     }
+    public void AgregarLineaDetalle(LineaDetalle oLD){
+        ContaLD++;
+        this.LineaD= new LineaDetalle();
+        this.LineaD= (LineaDetalle)LineaD.clone();
+        LD[ContaLD]= this.LineaD;   
+    }
     
+    public String ListaArticulos(){          
+        ListaArticulo="";
+        System.out.println("LISTA DE ARTICULOS CADENA JSON");
+        for(int i= 0; i <= CantidadComprada; i++){
+            System.out.println("\"Articulo[]\": {\n"+"\"Nombre\""+": \""+ARTICULO[i].getNombre()+"\",\n"
+            +"\"Codigo\": \""+ARTICULO[i].getCodigo()+"\",\n"+"\"Precio\": \""+ARTICULO[i].getPrecio()+"\n},");
+        }   
+        return ListaArticulo;        
+    }
     public void calcularTotalPagar (double s){ 
         this.TotalPagar=s;
         System.out.println("SU TOTAL A PAGAR ES: "+ this.getTotalPagar());

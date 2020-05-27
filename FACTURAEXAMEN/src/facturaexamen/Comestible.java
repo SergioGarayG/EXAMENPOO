@@ -14,7 +14,7 @@ public class Comestible extends articuloNuevo implements Articulo{
     
     @Override
     public void SolicitarAbastecimiento() {
-        
+        System.out.println("ABASTECIMIENTO SOLICITADO PARA COMESTIBLES");
     }
 
     

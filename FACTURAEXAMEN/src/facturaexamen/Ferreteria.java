@@ -15,8 +15,7 @@ public class Ferreteria extends articuloNuevo implements Articulo{
     
     @Override
     public void SolicitarAbastecimiento() {
-        
-        
+        System.out.println("ABASTECIMIENTO SOLICITADO PARA FERRETERIA");      
     }
 
     public String getArea() {
