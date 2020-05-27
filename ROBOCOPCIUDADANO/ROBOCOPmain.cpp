@@ -49,8 +49,5 @@ int main(int argc, char** argv) {
     cout << "El Manifestante " <<MEU->getNombre() <<" con ID: "<<MEU->getID()<<" lanzo "<<endl;
     cout << "El Policia " <<Chepo->getNombre() <<" con ID: "<<Chepo->getID()<<" lanzo "<<endl;
     cout << "El ROBOCOP " <<Terminator->getNombre() <<" con ID: "<<Terminator->getID()<<" con Placa "<<Terminator->getPlaca()<<endl;
-  
-
-    
     return 0;
 }
