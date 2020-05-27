@@ -1,6 +1,9 @@
 
 package facturaexamen;
 
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 
 public class FACTURAEXAMEN {
 
@@ -127,7 +130,37 @@ public class FACTURAEXAMEN {
        //Ahora agregamos los articulos
        
     
-      
+       Scanner entr=new Scanner(System.in);
+        
+        int opcion=0,ELEMENTO;
+        do{
+            try{
+                opcion=Integer.parseInt(JOptionPane.showInputDialog(null, "Bienvenido a la tienda DETODO1\n1. Escoja area Donde comprar\n2. Mostrar lista\n"
+                        +"3. Salir","Menu",3));
+                switch(opcion){
+                    case 1:
+                        try{
+                            ELEMENTO=Integer.parseInt(JOptionPane.showInputDialog(null,"QUE DESEA COMPRAR:","Insertado en el Inicio",3));
+                            //SE AGREGA EL NODO
+                            LD.AgregarArticulo(ELEMENTO);
+                        }catch(NumberFormatException a){
+                            JOptionPane.showMessageDialog(null,"ERROR:"+a.getMessage());
+                        }
+                        break;
+                    case 2:
+                        l.MostrarTodaLista();;
+                        break;
+                    case 3:
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null,"SU OPCION ES INVALIDA");
+                }
+                
+                
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null,"HUBO UN ERROR"+e.getMessage());
+            }
+        }while(opcion!=3);
        
     }
     
