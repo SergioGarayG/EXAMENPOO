@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=Cygwin-Windows
-CND_DLIB_EXT=dll
+CND_PLATFORM=GNU-Linux-x86
+CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -61,38 +61,38 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/robocopciudadano.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/robocopciudadano
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/robocopciudadano.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/robocopciudadano: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/robocopciudadano ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Ciudadano.o: Ciudadano.cpp
+${OBJECTDIR}/Ciudadano.o: Ciudadano.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Ciudadano.o Ciudadano.cpp
 
-${OBJECTDIR}/Manifestante.o: Manifestante.cpp
+${OBJECTDIR}/Manifestante.o: Manifestante.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Manifestante.o Manifestante.cpp
 
-${OBJECTDIR}/Policia.o: Policia.cpp
+${OBJECTDIR}/Policia.o: Policia.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Policia.o Policia.cpp
 
-${OBJECTDIR}/ROBOCOPmain.o: ROBOCOPmain.cpp
+${OBJECTDIR}/ROBOCOPmain.o: ROBOCOPmain.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ROBOCOPmain.o ROBOCOPmain.cpp
 
-${OBJECTDIR}/Robocop.o: Robocop.cpp
+${OBJECTDIR}/Robocop.o: Robocop.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Robocop.o Robocop.cpp
 
-${OBJECTDIR}/Robot.o: Robot.cpp
+${OBJECTDIR}/Robot.o: Robot.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Robot.o Robot.cpp
@@ -103,6 +103,7 @@ ${OBJECTDIR}/Robot.o: Robot.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/robocopciudadano
 
 # Subprojects
 .clean-subprojects:
