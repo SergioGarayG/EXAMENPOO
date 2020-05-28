@@ -5,37 +5,34 @@ package facturaexamen;
  *
  * @author say
  */
-public class LineaDetalle {
+public class LineaDetalle implements Cloneable{
     private Integer CantidadComprada;
-    private Integer SubTotalArticulo;
-<<<<<<< HEAD
+    private double SubTotalArticulo=0;
     private double InpuestoVenta;
-=======
-    private Integer InpuestoVenta;
->>>>>>> master
     private Integer MaxArticulos;
     private String ListaArticulo;
     
-    private articuloNuevo ARTICULO[];//INSTANCIA DE articuloNuevo
-    private articuloNuevo ArticuloNuevo; //AGREGACION
+    private articuloNuevo ARTICULO[];//Instancia para la clase articuloNuevo
+    private Articulo ART[];//AGREGACION
+    articuloNuevo Cabeza;
     
-<<<<<<< HEAD
     public LineaDetalle(){//CONSRUCTOR PARA INICIALIZAR CantidadComprada        
-        CantidadComprada=0;
+        CantidadComprada=-1;
         MaxArticulos=12;
-        ARTICULO= new articuloNuevo[MaxArticulos];     
-        
-=======
-    public LineaDetalle(){//CONSRUCTOR PARA INICIALIZAR CantidadComprada
-        CantidadComprada=0;
-        MaxArticulos=120;
-        ARTICULO= new articuloNuevo[MaxArticulos];
->>>>>>> master
+        ARTICULO= new articuloNuevo[MaxArticulos];         
+        this.Cabeza = null;//Es null porque vamosñ{- a recorrer la lista entera.
     }
-    /*public void AgregarArticulo(Articulo oArticulo){
-        CantidadComprada++;
-        ARTICULO[CantidadComprada]= oArticulo;        
-    }*/
+    public Object clone(){ 
+        Object obj= null;
+        try{
+            obj= super.clone();
+        }
+        catch(CloneNotSupportedException e){
+            System.out.println(" NO PUDO DUPLICARSE");
+        }
+        return obj;
+    }
+    
     public void AgregarArticulo(articuloNuevo oArticulo){
         CantidadComprada++;
         ARTICULO[CantidadComprada]= oArticulo; 
@@ -45,61 +42,87 @@ public class LineaDetalle {
     public String ListaArticulos(){          
         ListaArticulo="";
         System.out.println("LISTA DE ARTICULOS CADENA JSON");
-        for(int i= 1; i <= CantidadComprada; i++){
+        for(int i= 0; i <= CantidadComprada; i++){
             System.out.println("\"Articulo[]\": {\n"+"\"Nombre\""+": \""+ARTICULO[i].getNombre()+"\",\n"
             +"\"Codigo\": \""+ARTICULO[i].getCodigo()+"\",\n"+"\"Precio\": \""+ARTICULO[i].getPrecio()+"\n},");
-        }      
-        return ListaArticulo;  
-        
+        }   
+        return ListaArticulo;        
     }
     
-    /*public articuloNuevo[] ListaDeArticulos(){
-        return ARTICULO;
-    }*/
-<<<<<<< HEAD
+    
+    public void EliminarArticulo(int PorIndice){
+        int CONT=0;
+        articuloNuevo temp=Cabeza;
+        if(PorIndice==0){
+            Cabeza=Cabeza.ObtenSiguiente();
+        }else{
+            while(CONT<PorIndice-1){
+            temp=temp.ObtenSiguiente();//Este recorre la lista y hasta que lo encuentra
+            CONT++;
+            }temp.EnlazarSigue(
+            temp.ObtenSiguiente().ObtenSiguiente());
+        }CantidadComprada--; 
+    }
+//ME DICE SI EL ARREGLO ESTA VACIO
+    public boolean Vacia(){
+        if(CantidadComprada==null){
+            System.out.println("FACTURA VACIA");
+            return true;
+        }else{
+            System.out.println("FACTURA CON ARTICULOS");
+            return false;
+        }
+        //return (Cabeza==null)?true:false; esto es lo mismo de arriba
+    }
+    
+   
     public Integer getCantidadComprada() { 
-        
-=======
-    public Integer getCantidadComprada() {   
->>>>>>> master
-        return CantidadComprada=+2;
+        return CantidadComprada+1;
     }
 
     public void setCantidadComprada(Integer CantidadComprada) {
         this.CantidadComprada = CantidadComprada;
+        
     }
-<<<<<<< HEAD
+    double Is=0.25;
+    public void IV(){
+        for (int i = 0; i<= CantidadComprada; i++) {
+            InpuestoVenta+=ARTICULO[i].getPrecio()*Is;
+            System.out.println(ARTICULO[i].getNombre()+" SU IMPUESTO ES :"+ARTICULO[i].getPrecio()*Is);
+        }
+    }
     public double getInpuestoVenta() {
-=======
-    public Integer getInpuestoVenta() {
->>>>>>> master
+         
         return InpuestoVenta;
     }
 
     public void setInpuestoVenta(Integer InpuestoVenta) {
         this.InpuestoVenta = InpuestoVenta;
     }
-    
-    public void calcularImpuesto (){
-<<<<<<< HEAD
-        double Is=0.25;   
-        //Integer a = (int) Is;
-        
-        for (int i = 0; i <ARTICULO.length; i++) {
-           this.InpuestoVenta=ARTICULO[i].Precio*this.getCantidadComprada()*Is;            
+    public void ST(){
+        for (int i = 0; i<= CantidadComprada; i++) {
+            SubTotalArticulo+=ARTICULO[i].getPrecio()-ARTICULO[i].getPrecio()*Is;
+            System.out.println(ARTICULO[i].getNombre()+" SUBTOTAL: "+(ARTICULO[i].getPrecio()-ARTICULO[i].getPrecio()*Is));
         }
-        
-        System.out.println("ISV: "+this.ArticuloNuevo.getPrecio());
-=======
-        double Is=0.25;
-        int a = (int) Is;
-         
-        
-          // this.InpuestoVenta=this.getCantidadComprada()*this.ArticuloNuevo.getPrecio();
-           //InpuestoVenta++;
-        
-        //this.InpuestoVenta=this.getCantidadComprada()*this.ArticuloNuevo.PrecioTotal();
+    }
+   
+    public double getSubTotalArticulo() {       
+        return SubTotalArticulo;
+    }
+
+    public void setSubTotalArticulo(Integer SubTotalArticulo) {
+        this.SubTotalArticulo = SubTotalArticulo;
+    }
+    
+    public void calcularImpuesto (){          
         System.out.println("ISV: "+this.getInpuestoVenta());
->>>>>>> master
+    }
+    public void T(){
+        double x=this.InpuestoVenta+this.SubTotalArticulo;
+        for (int i = 0; i<= CantidadComprada; i++) {
+            x+=ARTICULO[i].getPrecio();
+            System.out.println("TOTAL A PAGAR POR "+ARTICULO[i].getNombre()+" ES: "+ARTICULO[i].getPrecio());
+        }
+        System.out.println("TOTAL A PAGAR POR TODO: "+(this.getInpuestoVenta()+this.getSubTotalArticulo()));
     }
 }

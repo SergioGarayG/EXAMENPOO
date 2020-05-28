@@ -14,7 +14,15 @@ public class Comestible extends articuloNuevo implements Articulo{
     
     @Override
     public void SolicitarAbastecimiento() {
-        
+        System.out.println("ABASTECIMIENTO SOLICITADO PARA COMESTIBLES");
+    }
+
+    public String getFechaVencimiento() {
+        return FechaVencimiento;
+    }
+
+    public void setFechaVencimiento(String FechaVencimiento) {
+        this.FechaVencimiento = FechaVencimiento;
     }
 
     
