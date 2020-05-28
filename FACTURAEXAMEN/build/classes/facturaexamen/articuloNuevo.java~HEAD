@@ -1,0 +1,115 @@
+<<<<<<< HEAD
+
+package facturaexamen;
+
+<<<<<<< HEAD:FACTURAEXAMEN/src/facturaexamen/articuloNuevo.java
+
+=======
+=======
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package facturaexamen;
+
+>>>>>>> master
+/**
+ *
+ * @author say
+ */
+<<<<<<< HEAD
+>>>>>>> master:FACTURAEXAMEN/src/facturaexamen/ArticuloNuevo.java
+=======
+>>>>>>> master
+public class articuloNuevo{
+    
+    private String codigo; 
+    private String Nombre; 
+<<<<<<< HEAD
+<<<<<<< HEAD:FACTURAEXAMEN/src/facturaexamen/articuloNuevo.java
+    protected Integer Precio; //NECESITAMOS UN ATRIBUTO INTEGER PORQUE CALCULAMOS UN IMPUESTO
+    
+=======
+    private Integer Precio; //NECESITAMOS UN ATRIBUTO INTEGER PORQUE CALCULAMOS UN IMPUESTO
+
+>>>>>>> master:FACTURAEXAMEN/src/facturaexamen/ArticuloNuevo.java
+=======
+    private Integer Precio; //NECESITAMOS UN ATRIBUTO INTEGER PORQUE CALCULAMOS UN IMPUESTO
+
+>>>>>>> master
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+<<<<<<< HEAD
+    Integer temp;
+    public Integer getPrecio() {
+        return Precio;       
+    }
+
+    public Integer getPrecio() {
+        return Precio;
+=======
+
+    public Integer getPrecio() { 
+        return Precio;       
+>>>>>>> master
+    }
+
+    public void setPrecio(Integer Precio) {
+        this.Precio = Precio;
+<<<<<<< HEAD
+        temp=Precio;
+        
+    }
+<<<<<<< HEAD:FACTURAEXAMEN/src/facturaexamen/articuloNuevo.java
+   
+    public Integer PrecioTotal(){ 
+        Precio+=temp;
+        /*Integer temp;
+        
+        if(Precio==null) {
+            Precio=temp;
+            //Precio++;
+        }else{
+            Precio+=temp;
+        }*/
+        
+        System.out.println("SU PRECIO TOTAL ES: "+this.getPrecio());
+=======
+    
+    public Integer PrecioTotal(){ 
+        Integer temp;
+        temp=Precio;
+        if(temp==null){
+            return Precio=temp;
+        }else{
+            if(temp!=null){
+                return Precio=temp+Precio;
+            }
+        }
+>>>>>>> master:FACTURAEXAMEN/src/facturaexamen/ArticuloNuevo.java
+        return Precio;
+=======
+    }
+    //Integer temp;
+    articuloNuevo n;
+    public void PrecioTotal(){ 
+        
+        Integer temp,tenp1;
+        System.out.println("SU PRECIO TOTAL ES: "+this.Precio);
+>>>>>>> master
+    }
+}
