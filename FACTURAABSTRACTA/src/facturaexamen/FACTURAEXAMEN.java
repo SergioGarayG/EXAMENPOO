@@ -74,7 +74,7 @@ public class FACTURAEXAMEN {
 
         //lista los Veendedores, regresa una cadena   
         System.out.println(oFactura.listarVendedores());
-        System.out.println("================================================");           
+        System.out.println(ANSI_PURPLE+"================================================"+ANSI_PURPLE);           
         //lista de clientes, regresa un arreglo con los objetos
         //luego lista ese arreglo
         oListaClientes= oFactura.ListaDeClientes();
@@ -134,7 +134,7 @@ public class FACTURAEXAMEN {
        
        LD.AgregarArticulo(ANEW);
        //AHORA IMPRIME LOS ARTICULOS CADA UNO CON SU PROPIEDAD
-       System.out.println("FERRETERIA");
+       System.out.println("FERRETERIA Y COMESTIBLES");
        System.out.println(LD.ListaArticulos());
        
        oFactura.AgregarLineaDetalle(LD);//ESTA AGREGA FACTURA ACA VEMOS LA COMPOSICION
@@ -166,8 +166,7 @@ public class FACTURAEXAMEN {
        TP=LD.getSubTotalArticulo();
        oFactura.calcularTotalPagar(TP);//ESTE EL TOTAL A PAGAR
        System.out.println(ANSI_PURPLE+"================================================"+ANSI_PURPLE); 
-         //INTENTAREMOS ELIMINAR UN ARTICULO
-       //ANEW.setNombre("HACHA");
+       
        
        
        System.out.println(ANSI_PURPLE+"================================================"+ANSI_PURPLE); 
@@ -183,7 +182,7 @@ public class FACTURAEXAMEN {
         
        //NUMERO DE FACTURA
        oFactura.setNumeroFactura(300);
-        System.out.println("#FACTURA: "+oFactura.getNumeroFactura());//GENERA UN NUMERO ALEATORIO CADA VEZ QUE COMPILA
+        System.out.println(ANSI_BLUE+"#FACTURA: "+oFactura.getNumeroFactura()+ANSI_BLUE);//GENERA UN NUMERO ALEATORIO CADA VEZ QUE COMPILA
       
        System.out.println(ANSI_PURPLE+"=== Borrar ==="+ANSI_PURPLE);
        oFactura= null;
