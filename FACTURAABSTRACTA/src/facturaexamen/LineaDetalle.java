@@ -6,6 +6,9 @@ package facturaexamen;
  * @author say
  */
 public class LineaDetalle implements Cloneable{
+    public static final String ANSI_RED="\033[31m";
+    public static final String ANSI_BLUE = "\033[34m";
+    public static final String ANSI_GREEN = "\033[32m";
     private Integer CantidadComprada;
     private double SubTotalArticulo=0;
     private double InpuestoVenta;
@@ -42,10 +45,10 @@ public class LineaDetalle implements Cloneable{
     
     public String ListaArticulos(){          
         ListaArticulo="";
-        System.out.println("LISTA DE ARTICULOS CADENA JSON");
+        System.out.println(ANSI_GREEN+"LISTA DE ARTICULOS CADENA JSON"+ANSI_GREEN);
         for(int i= 0; i <= CantidadComprada; i++){
-            System.out.println("\"Articulo[]\": {\n"+"\"Nombre\""+": \""+ART[i].getNombre()+"\",\n"
-            +"\"Codigo\": \""+ART[i].getCodigo()+"\",\n"+"\"Precio\": \""+ART[i].getPrecio()+"\n},");
+            System.out.println(ANSI_BLUE+"\"Articulo[]\": {\n"+"\"Nombre\""+": \""+ART[i].getNombre()+"\",\n"
+            +"\"Codigo\": \""+ART[i].getCodigo()+"\",\n"+"\"Precio\": \""+ART[i].getPrecio()+"\n},"+ANSI_BLUE);
         }   
         return ListaArticulo;        
     }
@@ -109,7 +112,7 @@ public class LineaDetalle implements Cloneable{
     }
     
     public void calcularImpuesto (){          
-        System.out.println("ISV: "+this.getInpuestoVenta());
+        System.out.println(ANSI_RED+"ISV: "+this.getInpuestoVenta()+ANSI_RED);
     }
     public void T(){
         double x=this.InpuestoVenta+this.SubTotalArticulo;
@@ -117,6 +120,6 @@ public class LineaDetalle implements Cloneable{
             x+=ART[i].getPrecio();
             System.out.println("TOTAL A PAGAR POR "+ART[i].getNombre()+" ES: "+ART[i].getPrecio());
         }
-        System.out.println("TOTAL A PAGAR POR TODO: "+(this.getInpuestoVenta()+this.getSubTotalArticulo()));
+        System.out.println(ANSI_RED+"TOTAL A PAGAR POR TODO: "+(this.getInpuestoVenta()+this.getSubTotalArticulo())+ANSI_RED);
     }
 }
