@@ -3,16 +3,16 @@ package facturaexamen;
 
 
 public class Persona {
-    private String NombreComplleto;
+    private String NombreCompleto;
     private String Direccion;
     private String Id;
 
-    public String getNombreComplleto() {
-        return NombreComplleto;
+    public String getNombreCompleto() {
+        return NombreCompleto;
     }
 
-    public void setNombreComplleto(String NombreComplleto) {
-        this.NombreComplleto = NombreComplleto;
+    public void setNombreCompleto(String NombreCompleto) {
+        this.NombreCompleto = NombreCompleto;
     }
 
     public String getDireccion() {
