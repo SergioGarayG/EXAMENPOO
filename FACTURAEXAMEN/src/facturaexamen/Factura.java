@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 
 public class Factura implements Cloneable{
+    public static final String ANSI_GREEN = "\033[32m";
+    public static final String ANSI_RED="\033[31m";
     private String FechaFactura;
     private int NumeroFactura;
     private double TotalPagar=0;
@@ -66,7 +68,7 @@ public class Factura implements Cloneable{
     
      public String listarVendedores(){          
         ListaVendedores="";
-        System.out.println("LISTA DE EMPLEADOS CADENA JSON");
+        System.out.println(ANSI_GREEN +"LISTA DE EMPLEADOS CADENA JSON"+ANSI_GREEN );
         for(int i= 0; i <= ContaVendedor; i++){
             System.out.println("\"Vendedor[]\": {\n"+"\"Nombre\""+": \""+Vendedores[i].getNombreCompleto()+"\",\n"
             +"\"Direccion\": \""+Vendedores[i].getDireccion()+"\",\n"+"\"ID\": \""+Vendedores[i].getId()+"\",\n"
@@ -143,7 +145,7 @@ public class Factura implements Cloneable{
     }
     public void calcularTotalPagar (double TP){ 
         TotalPagar=TP+TotalImpuesto;
-        System.out.println("TOTAL A PAGAR FACTURA: "+this.getTotalPagar());
+        System.out.println(ANSI_RED+"TOTAL A PAGAR FACTURA: "+this.getTotalPagar()+ANSI_RED);
     }
     public double getTotalImpuesto() {          
         return TotalImpuesto;
@@ -154,6 +156,6 @@ public class Factura implements Cloneable{
     }
     public void calcularImpuesto(double ISV){      
         TotalImpuesto=ISV;
-        System.out.println("ISV CLASE FACTURA: "+this.getTotalImpuesto());
+        System.out.println(ANSI_RED+"ISV CLASE FACTURA: "+this.getTotalImpuesto()+ANSI_RED);
     }
 }

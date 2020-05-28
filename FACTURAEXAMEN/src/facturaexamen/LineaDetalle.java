@@ -6,6 +6,7 @@ package facturaexamen;
  * @author say
  */
 public class LineaDetalle implements Cloneable{
+    public static final String ANSI_YELLOW = "\033[33m";
     private Integer CantidadComprada;
     private double SubTotalArticulo=0;
     private double InpuestoVenta;
@@ -41,7 +42,7 @@ public class LineaDetalle implements Cloneable{
     
     public String ListaArticulos(){          
         ListaArticulo="";
-        System.out.println("LISTA DE ARTICULOS CADENA JSON");
+        System.out.println(ANSI_YELLOW+"LISTA DE ARTICULOS CADENA JSON"+ANSI_YELLOW);
         for(int i= 0; i <= CantidadComprada; i++){
             System.out.println("\"Articulo[]\": {\n"+"\"Nombre\""+": \""+ARTICULO[i].getNombre()+"\",\n"
             +"\"Codigo\": \""+ARTICULO[i].getCodigo()+"\",\n"+"\"Precio\": \""+ARTICULO[i].getPrecio()+"\n},");

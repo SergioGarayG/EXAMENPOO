@@ -30,7 +30,7 @@ public class FACTURAEXAMEN {
        
         
         //instancia la empresa
-        
+        System.out.println(ANSI_RED+"COMERCIAL COVID19TH"+ANSI_RED);
         oFactura= new Factura("COVID19TH");
         
         
@@ -77,7 +77,7 @@ public class FACTURAEXAMEN {
 
         //lista los Veendedores, regresa una cadena   
         System.out.println(oFactura.listarVendedores());
-        System.out.println(ANSI_PURPLE+"================================================"+ANSI_PURPLE);           
+        System.out.println(ANSI_PURPLE+"================================================"+ANSI_PURPLE); 
         //lista de clientes, regresa un arreglo con los objetos
         //luego lista ese arreglo
         oListaClientes= oFactura.ListaDeClientes();
@@ -89,7 +89,7 @@ public class FACTURAEXAMEN {
             System.out.print("Credito: "); 
             System.out.println(oListaClientes[i].getCreditoActivo()+"\n"); 
        }    
-       System.out.println("================================================"); 
+        System.out.println(ANSI_PURPLE+"================================================"+ANSI_PURPLE); 
        
        LD=new LineaDetalle();//INSTANCIO LINEA DETALLE PORQUE AQUI AGREGO MIS ARTICULOS
        ANEW=new articuloNuevo();
@@ -121,20 +121,34 @@ public class FACTURAEXAMEN {
        ANEW.setPrecio(125);
        LD.AgregarArticulo(ANEW);
        
+       ANEW= null;
+       ANEW=new Comestible();//INSTANCIA PARA COMESTIBLE
+       ANEW.setNombre("POLLO ASADO");
+       ANEW.setCodigo("PIOPIO");
+       ANEW.setPrecio(100);
+       LD.AgregarArticulo(ANEW);
+       
+       ANEW= null;
+       ANEW=new Comestible();
+       ANEW.setNombre("CHULETA CON PAPAS");
+       ANEW.setCodigo("345d");
+       ANEW.setPrecio(145);
+       
+       LD.AgregarArticulo(ANEW);
        
        //AHORA IMPRIME LOS ARTICULOS CADA UNO CON SU PROPIEDAD
        System.out.println(LD.ListaArticulos());
        
        oFactura.AgregarLineaDetalle(LD);
        System.out.println(oFactura.ListaArticulos());
-       System.out.println("TOTAL ARTICULOS COMPRADOS: "+LD.getCantidadComprada());
+       System.out.println(ANSI_GREEN+"TOTAL ARTICULOS COMPRADOS: "+LD.getCantidadComprada()+ANSI_GREEN);
       
-       System.out.println("================================================");
+        System.out.println(ANSI_PURPLE+"================================================"+ANSI_PURPLE); 
        LD.Vacia();//VERIFICA SI ESTA VACIA O NO
-       LD.EliminarArticulo(0);
+       //LD.EliminarArticulo(0);
        //System.out.println(LD.ListaArticulos());
        
-       System.out.println("================================================");
+        System.out.println(ANSI_PURPLE+"================================================"+ANSI_PURPLE); 
        
        //AHORA HAREMOS LOS CALCULOS
        LD.ST();//ESTE METODO CALCULA EL SUBTOTAL EN LA CLASE LINEADETALLE
@@ -143,19 +157,19 @@ public class FACTURAEXAMEN {
        System.out.println("SUBTOTAL ARTICULOS: "+LD.getSubTotalArticulo());
        LD.T();;//ESTE METODO CALCULA EL TOTAL EN LA CLASE LINEADETALLE
        
-       System.out.println("================================================");       
-       double ISV,TP;
+       System.out.println(ANSI_PURPLE+"================================================"+ANSI_PURPLE); 
+        double ISV,TP;
        ISV=LD.getInpuestoVenta();
        oFactura.calcularImpuesto(ISV);;//ESTE METODO CALCULA EL IMPUESTO EN FACTURA POR MEDIO DE COMPOSICION
        TP=LD.getSubTotalArticulo();
        oFactura.calcularTotalPagar(TP);//ESTE EL TOTAL A PAGAR
-       System.out.println("================================================");
+        System.out.println(ANSI_PURPLE+"================================================"+ANSI_PURPLE); 
          //INTENTAREMOS ELIMINAR UN ARTICULO
        //ANEW.setNombre("HACHA");
        
        
-       System.out.println("================================================");
-       //AHORA LLAMAREMOS A LAS CLASES HIJAS DE ARTICULONUEVO
+       System.out.println(ANSI_PURPLE+"================================================"+ANSI_PURPLE); 
+        //AHORA LLAMAREMOS A LAS CLASES HIJAS DE ARTICULONUEVO
        F=new Ferreteria();
        F.SolicitarAbastecimiento();
        F.setArea("CONSTRUCCION");
@@ -167,9 +181,9 @@ public class FACTURAEXAMEN {
         
        //NUMERO DE FACTURA
        oFactura.setNumeroFactura(300);
-        System.out.println("#FACTURA: "+oFactura.getNumeroFactura());//GENERA UN NUMERO ALEATORIO CADA VEZ QUE COMPILA
+        System.out.println(ANSI_BLUE+"#FACTURA: "+oFactura.getNumeroFactura()+ANSI_BLUE);//GENERA UN NUMERO ALEATORIO CADA VEZ QUE COMPILA
       
-       System.out.println("=== Borrar ===");
+       System.out.println(ANSI_PURPLE+"=== Borrar ==="+ANSI_PURPLE);
        oFactura= null;
        System.gc();
        //oListaClientes= oFactura.ListaDeClientes();
